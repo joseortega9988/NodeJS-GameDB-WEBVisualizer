@@ -2,9 +2,17 @@
 This is a Node.js and EJS web app displaying games from a MySQL database, transformed from CSV via a Python script. It features intuitive browsing and detailed game insights
 
 ## How to run it 
+1) Need to install node.js from the offial page and iniciate node.js opening the terminal in the directory of this carpet with this command
+   
+   **npm init**
+   
+2) then you need to replace the folder node_modules with the one in this repository or install all the packages (list ot the final) with these commands (EXAMPLE):
+   
+   **npm install "packages"**
 
-1)	Open MYSQL or open terminal and put the command mysql
-2)	Connect a user in mysql environment and the make have all access. Copy this lines in mysql terminal:
+3)	Open MYSQL or open terminal and put the command mysql
+
+4)	Connect a user in mysql environment and the make have all access. Copy this lines in mysql terminal:
    
     **CREATE USER 'sqluser'@'127.0.0.1';**
     
@@ -14,19 +22,19 @@ This is a Node.js and EJS web app displaying games from a MySQL database, transf
     
     **FLUSH PRIVILEGES;**
 
-3)	Copy all the database.sql file in mysql terminal as it is
+5)	Copy all the database.sql file in mysql terminal as it is
 
-4)	Open a new terminal and install pandas and mySQL connector in python with the command
+6)	Open a new terminal and install pandas and mySQL connector in python with the command
 
     **pip install pandas mysql-connector-python**
 
-5)	Run the python cvs_injector.py (be patient, this script take around 30-40 minutes to be completed)
+7)	Run the python cvs_injector.py (be patient, this script take around 30-40 minutes to be completed)
 
-6)	Start the app with the command:
+8)	Start the app with the command:
 
     **node index.js**
 
-7)	Open the port localhost:8800
+9)	Open the port localhost:8800
 
 # Web Application Overview
 

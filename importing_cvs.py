@@ -16,7 +16,7 @@ logging.basicConfig(
 DB_HOST = 'localhost'
 DB_USER = 'sqluser'
 DB_PASSWORD = 'password'
-DB_DATABASE = 'steam_games_test'
+DB_DATABASE = 'steam_games'
 
 # CSV file path and filename
 CSV_FILE = './databaseCVS/games_test_copy9.csv'

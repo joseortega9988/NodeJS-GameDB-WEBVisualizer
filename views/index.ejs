@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Steams Games Database</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Index</title>
+      <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+</head>
+<header>
+  <div class="topnav">
+  <a href="/" class="active">Home</a>
+  <a href="/reviews">Reviews</a>
+  <a href="/all_reviews_of_media">Media Reviews</a>
+  <a href="/system_support">System_support</a>
+  <a href="/users_data">User Data</a>
+  <a href="/all_categories">Categories</a>
+  <a href="/all_tags">Tags</a>
+  <a href="/all_genres">Genres</a>
+  <a href="/all_publishers">Publishers</a>
+  <a href="/all_developers">Developers</a>
+  <a href="/all_trailers">Trailers</a>
+  <a href="/all_screenshots">Screenshots</a>
+  <a href="/all_audios">Audios</a>
+  <a href="/all_subtitles">Subtitles</a>
+</div>
+</header>
+
+
+<h1>Steams Games Database<% if (searchQuery) { %> - Search results for '<%= searchQuery %>'<% } %></h1>
+<form action="/" method="GET" class="search-form" class="search-form">
+    <input type="text" name="search" placeholder="Search Database (BY TITLE)" value="<%= searchQuery || '' %>">
+    <button type="submit">Search</button>
+</form>
+<div class="table-container">
+
+  <table>
+    <thead>
+
+    <tr>
+      <th><a href="?sortBy=games_id&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="games_id" data-sortorder="<%= sortOrder %>"> 
+        Game ID
+        </a>
+      </th>   
+      <th>Cover Image</th>
+      <th>
+        <a href="?sortBy=title&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" data-sortby="title" data-sortorder="<%= sortOrder %>">
+        Title
+        </a>
+      </th>
+      <th>
+        <a href="?sortBy=Metacritic_score&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="Metacritic_score" data-sortorder="<%= sortOrder %>">
+            Score
+        </a>
+      </th>  
+      <th>
+        <a href="?sortBy=realise_date&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="realise_date" data-sortorder="<%= sortOrder %>">
+            Release Date
+        </a>
+      </th>        
+      <th>
+        <a href="?sortBy=price&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="price" data-sortorder="<%= sortOrder %>">
+            Price
+        </a>
+     </th>
+     <th>
+      <a href="?sortBy=total_DLC_packs&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="total_DLC_packs" data-sortorder="<%= sortOrder %>">
+          Total DLC Packs
+      </a>
+    </th>
+    <th>
+      <a href="?sortBy=age_rating&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="age_rating" data-sortorder="<%= sortOrder %>">
+          Age Rating
+      </a>
+    </th>
+      <th>Game Website</th>
+      <th>Synopsis</th>
+      <th>Reviews</th>
+      <th>Media Reviews</th>
+      <th>System Requierments</th>
+      <th>User Data</th>
+      <th>Categories</th>
+      <th>Tags</th>
+      <th>Genres</th>
+      <th>Publishers</th>
+      <th>Developers</th>
+      <th>Trailers</th>
+      <th>Screenshots</th>
+      <th>Audios</th>
+      <th>Subtitles</th>
+      <th>Support Links</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <% for (let i = 0; i < games.length; i++) { %>
+        <tr>
+          <td><%= games[i].games_id %> </td>
+          <td><img src="<%=games[i].cover_img %>"  class="screenshot-image"></td>
+          <td>            
+            <a href="/games/<%= games[i].games_id %>">
+            <%= games[i].title %> 
+            </a>
+          </td>
+          <td><%= games[i].Metacritic_score %>/100</td>
+          <td><%= formatDate(games[i].realise_date) %></td>
+          <td><%= games[i].price %></td>
+          <td><%= games[i].total_DLC_packs %></td>
+          <td><%= games[i].age_rating %></td>
+          <td><a href="<%= games[i].game_website %>" target="_blank"><%= games[i].game_website %></a></td>
+          <td><a href="/sinopsis/<%= games[i].games_id %>">View Sinopsis</a></td>
+          <td><a href="/reviews/<%= games[i].games_id %>">View Reviews</a></td>
+          <td><a href="/reviews_of_media/<%= games[i].games_id %>">Media Reviews</a></td>
+          <td><a href="/system_support/<%= games[i].games_id %>">View System Support</a></td>
+          <td><a href="/users_data/<%= games[i].games_id %>">View Users Data</a></td>
+          <td><a href="/categories/<%= games[i].games_id %>">View Categories</a></td>
+          <td><a href="/tags/<%= games[i].games_id %>">View Tags</a></td>
+          <td><a href="/genres/<%= games[i].games_id %>">View Genres</a></td>
+          <td><a href="/publishers/<%= games[i].games_id %>">View Publishers</a></td>
+          <td><a href="/developers/<%= games[i].games_id %>">View Developers</a></td>
+          <td><a href="/trailers/<%= games[i].games_id %>">View Trailers</a></td>
+          <td><a href="/screenshots/<%= games[i].games_id %>">View Screenshots</a></td>
+          <td><a href="/audios/<%= games[i].games_id %>">View Audios</a></td>
+          <td><a href="/subtitles/<%= games[i].games_id %>">View subtitles</a></td>
+          <td><a href="/support/<%= games[i].games_id %>">Support Links</a></td>
+
+
+
+        </tr>
+    <% } %>
+    </tbody>
+
+  </table>
+
+</div>
+<div id="screenshotModal" class="modal2">
+  <span class="close">&times;</span>
+  <img id="enlargedImage" class="modal-content2">
+</div>
+<script src="/js/script.js"></script>
+</body>
+</html>

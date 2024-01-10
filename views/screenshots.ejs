@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Screenshots</title>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Index</title>
+            <link rel="stylesheet" type="text/css" href="/css/style.css">
+        </head>
+        <header>
+            <div class="topnav">
+            <a href="/" class="active">Home</a>
+            <a href="/reviews">Reviews</a>
+            <a href="/all_reviews_of_media">Media Reviews</a>
+            <a href="/system_support">System_support</a>
+            <a href="/users_data">User Data</a>
+            <a href="/all_categories">Categories</a>
+            <a href="/all_tags">Tags</a>
+            <a href="/all_genres">Genres</a>
+            <a href="/all_publishers">Publishers</a>
+            <a href="/all_developers">Developers</a>
+            <a href="/all_trailers">Trailers</a>
+            <a href="/all_screenshots">Screenshots</a>
+            <a href="/all_audios">Audios</a>
+            <a href="/all_subtitles">Subtitles</a>
+            </div>
+        </header>
+    <body>
+        <h1>                        
+            <a href="/games/<%= gameId %>">
+                <%= game  %> 
+            </a>
+            Screenshots
+        </h1>
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>
+                        <a href="?sortBy=screenshots_id&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>" class="sort-link" data-sortby="screenshots_id" data-sortorder="<%= sortOrder %>">
+                            Screenshot ID
+                        </a>
+                    </th>
+                    <th>Screenshot</th>
+                    <th>
+                        <a href="?sortBy=screenshots_URL&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>" class="sort-link" data-sortby="screenshots_URL" data-sortorder="<%= sortOrder %>">
+                            Screenshot URL
+                        </a>
+                    </th>
+                </tr>
+                </thead>
+
+                <tbody>
+                
+                <% for (let i = 0; i < screenshots.length; i++) { %>
+                        <tr>
+                        <td><%= screenshots[i].screenshots_id %></td>
+                        <td><img src="<%= screenshots[i].screenshots_URL%>"  class="screenshot-image"></td>
+                        <td><a href="<%= screenshots[i].screenshots_URL %>" target="_blank"><%= screenshots[i].screenshots_URL %></a></td>
+                    </tr>
+                <% } %>
+                </tbody>
+
+            </table>
+            <a href="/">Back to Home</a>
+        </div>
+        <div id="screenshotModal" class="modal">
+            <span class="close">&times;</span>
+            <img id="enlargedImage" class="modal-content">
+        </div>
+        <script src="/js/script.js"></script>
+    </body>
+    </html>    
+

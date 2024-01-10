@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>System Support Details</title>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Index</title>
+            <link rel="stylesheet" type="text/css" href="/css/style.css">
+    </head>
+    <header>
+        <div class="topnav">
+        <a href="/" class="active">Home</a>
+        <a href="/reviews">Reviews</a>
+        <a href="/all_reviews_of_media">Media Reviews</a>
+        <a href="/system_support">System_support</a>
+        <a href="/users_data">User Data</a>
+        <a href="/all_categories">Categories</a>
+        <a href="/all_tags">Tags</a>
+        <a href="/all_genres">Genres</a>
+        <a href="/all_publishers">Publishers</a>
+        <a href="/all_developers">Developers</a>
+        <a href="/all_trailers">Trailers</a>
+        <a href="/all_screenshots">Screenshots</a>
+        <a href="/all_audios">Audios</a>
+        <a href="/all_subtitles">Subtitles</a>
+    </div>
+    </header>
+    <body>
+        <h1>System Support Details <% if (searchQuery) { %> - Search results for '<%= searchQuery %>'<% } %></h1>
+        <% if (systemsupport) { %>
+        <form action="/system_support" method="GET" class="search-form">
+            <input type="text" name="search" placeholder="System support Search (BY TITLE)" value="<%= searchQuery %>">
+            <button type="submit">Search</button>
+        </form>
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>
+                        <a href="?sortBy=system_support_id&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="system_support_id" data-sortorder="<%= sortOrder %>">
+                            Support ID
+                        </a>
+                    </th>
+                    <th>
+                        <a href="?sortBy=title&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="title" data-sortorder="<%= sortOrder %>">
+                            Title
+                        </a>
+                    </th>
+                    <th>
+                        <a href="?sortBy=Windows&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="Windows" data-sortorder="<%= sortOrder %>">
+                            Windows Support
+                        </a>
+                    </th>
+                    <th>
+                        <a href="?sortBy=Mac&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="Mac" data-sortorder="<%= sortOrder %>">
+                            Mac Support
+                        </a>
+                    </th>
+                    <th>
+                        <a href="?sortBy=Linux&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="Linux" data-sortorder="<%= sortOrder %>">
+                            Linux Support
+                        </a>
+                    </th>                    
+                </tr>
+                </thead>
+
+                <tbody>
+                    
+                <% for (let i = 0; i < systemsupport.length; i++) { %>
+                    <tr>
+                        <td><%= systemsupport[i].system_support_id %></td> 
+                        <td>
+                            <a href="/games/<%= systemsupport[i].games_id %>">
+                            <%= systemsupport[i].title %>
+                            </a>
+                        </td>
+                        <td><%= systemsupport[i].Windows ? 'Yes' : 'No' %></td>
+                        <td><%= systemsupport[i].Mac ? 'Yes' : 'No' %></td>
+                        <td><%= systemsupport[i].Linux ? 'Yes' : 'No' %></td>
+                    </tr>
+                <% } %>
+                </tbody>
+
+            </table>
+            <a href="/">Back to Home</a>
+        </div>
+        <% } else { %>
+            <p>No system support found with the provided ID.</p>
+            <% } %>
+    </body>
+</html>
+
+    
+    
+    
+    
+    
+    

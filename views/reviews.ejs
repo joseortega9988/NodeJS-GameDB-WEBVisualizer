@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Game Reviews<</title>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Index</title>
+            <link rel="stylesheet" type="text/css" href="/css/style.css">
+    </head>
+    <header>
+        <div class="topnav">
+        <a href="/" class="active">Home</a>
+        <a href="/reviews">Reviews</a>
+        <a href="/all_reviews_of_media">Media Reviews</a>
+        <a href="/system_support">System_support</a>
+        <a href="/users_data">User Data</a>
+        <a href="/all_categories">Categories</a>
+        <a href="/all_tags">Tags</a>
+        <a href="/all_genres">Genres</a>
+        <a href="/all_publishers">Publishers</a>
+        <a href="/all_developers">Developers</a>
+        <a href="/all_trailers">Trailers</a>
+        <a href="/all_screenshots">Screenshots</a>
+        <a href="/all_audios">Audios</a>
+        <a href="/all_subtitles">Subtitles</a>
+    </div>
+    </header>
+<body>
+  <h1>Game Reviews<% if (searchQuery) { %> - Search results for '<%= searchQuery %>'<% } %></h1>
+  <form action="/reviews" method="GET" class="search-form">
+    <input type="text" name="search" placeholder="Search reviews (BY TITLE)" value="<%= searchQuery %>">
+    <button type="submit">Search</button>
+  </form>
+  <div class="table-container">
+      <table>
+        <thead>
+
+          <tr>
+            <th>
+                <a href="?sortBy=reviews_id&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="reviews_id" data-sortorder="<%= sortOrder %>">
+                    Review ID
+                </a>
+            </th>  
+            <th>
+                <a href="?sortBy=title&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="title" data-sortorder="<%= sortOrder %>">
+                    Title
+                </a>
+            </th>
+            <th>
+                <a href="?sortBy=metacritic_score&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="metacritic_score" data-sortorder="<%= sortOrder %>">
+                    Metacritic Score
+                </a>
+            </th>
+            <th>
+                <a href="?sortBy=positive_reviews&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="positive_reviews" data-sortorder="<%= sortOrder %>">
+                    Positive Reviews
+                </a>
+            </th>
+            <th>
+                <a href="?sortBy=negative_reviews&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="negative_reviews" data-sortorder="<%= sortOrder %>">
+                    Negative Reviews
+                </a>
+            </th>
+            <th>
+                <a href="?sortBy=recommendations&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="recommendations" data-sortorder="<%= sortOrder %>">
+                    Recommendations
+                </a>
+            </th>            
+            <th>Notes</th>
+            <th>Metacritic URL</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+            <% for (let i = 0; i < reviews.length; i++) { %>
+                <tr>
+                    <td><%= reviews[i].reviews_id %></td>                    
+                    <td>
+                        <a href="/games/<%= reviews[i].games_id %>">
+                        <%= reviews[i].title %>
+                        </a>
+                    </td> 
+                    <td><%= reviews[i].Metacritic_score %></td>
+                    <td><%= reviews[i].positive_reviews %></td>
+                    <td><%= reviews[i].negative_reviews %></td>
+                    <td><%= reviews[i].recommendations %></td>
+                    <td><%= reviews[i].notes %></td>
+                    <td><a href="<%= reviews[i].Metacritic_url %>" target="_blank"><%= reviews[i].Metacritic_url %></a></td>
+
+                </tr>
+            <% } %>
+        </tbody>
+
+        </table>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

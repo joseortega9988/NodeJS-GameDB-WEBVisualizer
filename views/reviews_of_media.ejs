@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Reviews of Media</title>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Index</title>
+            <link rel="stylesheet" type="text/css" href="/css/style.css">
+    </head>
+    <header>
+        <div class="topnav">
+        <a href="/" class="active">Home</a>
+        <a href="/reviews">Reviews</a>
+        <a href="/all_reviews_of_media">Media Reviews</a>
+        <a href="/system_support">System_support</a>
+        <a href="/users_data">User Data</a>
+        <a href="/all_categories">Categories</a>
+        <a href="/all_tags">Tags</a>
+        <a href="/all_genres">Genres</a>
+        <a href="/all_publishers">Publishers</a>
+        <a href="/all_developers">Developers</a>
+        <a href="/all_trailers">Trailers</a>
+        <a href="/all_screenshots">Screenshots</a>
+        <a href="/all_audios">Audios</a>
+        <a href="/all_subtitles">Subtitles</a>
+    </div>
+    </header>
+<body>
+    <h1>                        
+        <a href="/games/<%= gameId %>">
+            <%= game  %> 
+        </a>
+        Reviews of Media
+    </h1>
+    <div class="table-container">
+        <table>
+            <thead>
+
+            <tr>
+                <th>
+                    <a href="?sortBy=reviews_of_media_id&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>" class="sort-link" data-sortby="reviews_of_media_id" data-sortorder="<%= sortOrder %>">
+                        Review ID
+                    </a>
+                </th>
+                <th>
+                    <a href="?sortBy=review&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>" class="sort-link" data-sortby="review" data-sortorder="<%= sortOrder %>">
+                        Review
+                    </a>
+                </th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <% if (reviewsOfMedia.length>0) { %>
+
+                <% for (let i = 0; i < reviewsOfMedia.length; i++) { %>
+                    <tr>
+                        <td><%= reviewsOfMedia[i].reviews_of_media_id %></td>
+                        <td><%= reviewsOfMedia[i].review %></td>
+                    </tr>
+                <% } %>
+                <% } else { %>
+                    <tr>
+                        <td>No media reviews found.</td>
+                    </tr>
+            <% } %>
+            </tbody>
+
+        </table>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

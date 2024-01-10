@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>USers Data</title>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Index</title>
+            <link rel="stylesheet" type="text/css" href="/css/style.css">
+    </head>
+    <header>
+        <div class="topnav">
+        <a href="/" class="active">Home</a>
+        <a href="/reviews">Reviews</a>
+        <a href="/all_reviews_of_media">Media Reviews</a>
+        <a href="/system_support">System_support</a>
+        <a href="/users_data">User Data</a>
+        <a href="/all_categories">Categories</a>
+        <a href="/all_tags">Tags</a>
+        <a href="/all_genres">Genres</a>
+        <a href="/all_publishers">Publishers</a>
+        <a href="/all_developers">Developers</a>
+        <a href="/all_trailers">Trailers</a>
+        <a href="/all_screenshots">Screenshots</a>
+        <a href="/all_audios">Audios</a>
+        <a href="/all_subtitles">Subtitles</a>
+    </div>
+    </header>
+    <body>
+        <h1>Users Data <% if (searchQuery) { %> - Search results for '<%= searchQuery %>'<% } %></h1>
+        <form action="/users_data" method="GET" class="search-form">
+            <input type="text" name="search" placeholder="Users Data Search (BY TITLE)" value="<%= searchQuery %>">
+            <button type="submit">Search</button>
+        </form>
+        <% if (usersData.length > 0) { %>
+            <div class="table-container">
+                <table>
+                    <thead>
+                    <tr>
+                    
+                        <th>
+                            <a href="?sortBy=users_data_id&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="users_data_id" data-sortorder="<%= sortOrder %>">
+                                Data ID
+                            </a>
+                        </th>
+                        <th>
+                            <a href="?sortBy=title&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="title" data-sortorder="<%= sortOrder %>">
+                                Title
+                            </a>
+                        </th>
+                        <th>
+                            <a href="?sortBy=current_users&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="current_users" data-sortorder="<%= sortOrder %>">
+                                Current Users
+                            </a>
+                        </th>
+                        <th>
+                            <a href="?sortBy=min_estimated_owners&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="min_estimated_owners" data-sortorder="<%= sortOrder %>">
+                                Min Estimated Owners
+                            </a>
+                        </th>
+                        <th>
+                            <a href="?sortBy=max_estimated_owners&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="max_estimated_owners" data-sortorder="<%= sortOrder %>">
+                                Max Estimated Owners
+                            </a>
+                        </th>
+                        <th>
+                            <a href="?sortBy=Average_playtime&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="Average_playtime" data-sortorder="<%= sortOrder %>">
+                                Average Playtime
+                            </a>
+                        </th>
+                        <th>
+                            <a href="?sortBy=Median_playtime&sortOrder=<%= sortOrder === 'asc' ? 'desc' : 'asc' %>&search=<%= searchQuery %>" class="sort-link" data-sortby="Median_playtime" data-sortorder="<%= sortOrder %>">
+                                Median Playtime
+                            </a>
+                        </th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                        
+                    <% for (let i = 0; i < usersData.length; i++) { %>
+                        <tr>
+                            <td><%= usersData[i].users_data_id %></td>
+                            <td>
+                                <a href="/games/<%= usersData[i].games_id %>">
+                                <%= usersData[i].title %>
+                                </a>
+                            </td> 
+                            <td><%= usersData[i].current_users %></td>
+                            <td><%= usersData[i].min_estimated_owners %></td>
+                            <td><%= usersData[i].max_estimated_owners %></td>
+                            <td><%= usersData[i].Average_playtime %></td>
+                            <td><%= usersData[i].Median_playtime %></td>
+                        </tr>
+                    <% } %>
+                    </tbody>
+
+                </table>
+                    <a href="/">Back to Home</a>
+                </div>
+            <% } else { %>
+                <p>No users data found.</p>
+                <% } %>
+    </body>
+</html>
+
+    
+    
+    
+    
+    
+    

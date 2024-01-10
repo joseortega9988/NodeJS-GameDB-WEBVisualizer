@@ -1,0 +1,304 @@
+/* Reset some default browser styles */
+body, h1, h2, h3, p, ul, li, table {
+    margin: 0;
+    padding: 0;
+}
+
+/* Center all h1 elements on the page */
+h1 {
+    text-align: center;
+    margin-top: 20px; /* Add some top margin for better spacing */
+}
+
+
+/* Set a background color and font family for the entire page */
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    color: #f2f2f2;
+    border: 1px solid #ddd; /* Add a frame around topnav */
+}
+
+.topnav a {
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    color: white;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Style the main content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    margin: 20px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+table td{
+    padding: 10px;
+    border-right: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    border: 1px solid #ddd; /* Add a frame around table headers */
+    
+}
+
+table tr {
+    border-bottom: 1px solid #ddd;
+
+}
+
+table tr:hover {
+    background-color: #f5f5f5;
+
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.table-container {
+    max-width: 100%; 
+    overflow-x:auto;
+}
+
+.table-container {
+    position: fixed;
+    top: 180px; /* Adjust this value to account for the header height */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    padding: 0px;
+    background-color: #fff; /* Set a background color for the table area */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+
+}
+
+thead th,
+tbody td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+thead th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  position:sticky;
+  top: -1px;
+  z-index: 2; /* Make the sticky header layer above the table body */
+}
+
+tbody td {
+  padding: 10px;
+  border-right: 1px solid #ddd;
+
+}
+tbody th{
+    text-align: center;
+}
+
+
+/* sjust the table container depending of the size of the page */
+
+@media (max-width: 1485px) {
+    .table-container {
+        top: 230px; /* Adjust this value to account for the header height */
+    }
+}
+
+@media (max-width: 770px) {
+    .table-container {
+        top: 280px; /* Adjust this value to account for the header height */
+    }
+}
+
+@media (max-width: 515px) {
+    .table-container {
+        top: 330px; /* Adjust this value to account for the header height */
+    }
+}
+
+@media (max-width: 398px) {
+    .table-container {
+        top: 380px; /* Adjust this value to account for the header height */
+    }
+}
+
+
+
+/* Style for the search form */
+.search-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 5px;
+}
+
+.search-form input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.search-form button[type="submit"] {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* CSS for the screenshot images */
+.screenshot-image {
+    flex: 1;
+    flex-basis: auto;
+    height: max-content;
+    min-height: 150px;
+    min-width: 150px;
+    max-width: 300px;
+    max-height: 300px;
+    display: flex;
+    margin: 10px auto;
+    border: 1px solid #ddd;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Styles for the video container */
+.video-container {
+    width:auto;
+    min-width: 300px; 
+    min-height: 150px;
+    max-width: 600px;
+    margin: 20px auto;
+    position: relative;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Styles for the video preview */
+.lazy-video {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1);
+}
+
+/* Hover effect to enlarge the video preview on hover */
+.video-container:hover .lazy-video {
+    transform: scale(1.05);
+}
+
+/* MODAL FOR SCREENSHOTS */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: 60px auto;
+    display:block;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+/* MODAL FOR INDEX */
+
+.modal2 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content2 {
+    margin: 300px auto;
+    display:block;
+    width:max-content;
+    height: max-content;
+}
+
+.close {
+    color: white;
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: red;
+}

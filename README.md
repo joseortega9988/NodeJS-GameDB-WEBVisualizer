@@ -1,6 +1,6 @@
 # NodeJS-GameDB-WEBVisualizer
 This is a Node.js and EJS web app displaying games from a MySQL database, transformed from CSV via a Python script. It features intuitive browsing and detailed game insights
-
+<img width="959" alt="Screenshot 2024-01-10 055549" src="https://github.com/joseortega9988/NodeJS-GameDB-WEBVisualizer/assets/77720475/cd26116b-351f-4fe0-ade6-7088cbc1db0b">
 ## How to run it 
 1) Need to install node.js from the offial page and iniciate node.js opening the terminal in the directory of this carpet with this command
    
@@ -39,6 +39,8 @@ This is a Node.js and EJS web app displaying games from a MySQL database, transf
 # Web Application Overview
 
 This web application is developed using Node.js with EJS templating to present a visual interface for a MySQL database. The primary function of this web application is to display data that has been meticulously normalized and imported from an originally extensive CSV file into a MySQL database.
+
+<img width="948" alt="Screenshot 2024-01-10 055007" src="https://github.com/joseortega9988/NodeJS-GameDB-WEBVisualizer/assets/77720475/d7b95572-6466-4c11-b6b8-dac70e623e6d">
 
 ## Features and Functionalities
 

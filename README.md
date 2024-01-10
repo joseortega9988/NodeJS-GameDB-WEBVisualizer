@@ -20,15 +20,13 @@ This is a Node.js and EJS web app displaying games from a MySQL database, transf
 
     **pip install pandas mysql-connector-python**
 
-5)	Run the python cvs_injector.py file
+5)	Run the python cvs_injector.py (be patient, this script take around 30-40 minutes to be completed)
 
 6)	Start the app with the command:
 
     **node index.js**
 
 7)	Open the port localhost:8800
-
-#### If you want to run the Python script, be patient; this will take around 30-40 minutes to complete.
 
 # Web Application Overview
 
@@ -50,14 +48,11 @@ The web application's database schema is organized to reflect the multifaceted n
 
 The design of the web application is intentionally simple, as the goal for the project was more focused on the structure of the data rather than the aesthetics of the web.
 
-## Backend Technology
+## Database Summary
 
-- **Node.js**: The runtime environment for executing JavaScript on the server side, ensuring high performance and asynchronous processing.
-- **Express**: A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications, making the handling of HTTP requests and routing more convenient.
-- **EJS**: An embedded JavaScript templating engine that generates HTML markup with plain JavaScript, allowing for the creation of dynamic web pages based on data from the MySQL database.
-- **MySQL2**: A fast and efficient MySQL client for Node.js, which provides compatibility with the latest MySQL features and an improved API for dealing with MySQL protocols.
-- **MySQL2-promise**: A wrapper for the MySQL2 client, adding support for JavaScript promises, thus enabling better handling of asynchronous database operations.
-- **Nodemon**: A utility that monitors for any changes in the source code and automatically restarts the server, improving the development process by reducing downtime and manual restarts.
+Database link : https://www.kaggle.com/datasets/fronkongames/steam-games-dataset
+
+The database for this project is derived from an expansive Kaggle dataset on Steam games, initially consisting of 74,690 games across 39 attributes. Prioritizing data quality, the dataset was refined to include only 4,000 games with a Metacritic score of 80 or higher. Columns predominantly filled with null or irrelevant values were omitted, reducing the dataset to a more manageable 35 attributes, thus ensuring a balance between complexity and practicality for analysis.
 
 ## Data Transformation
 
@@ -67,6 +62,15 @@ The transition from a CSV file to a MySQL database was accomplished through a cu
 
 At the heart of our web application's architecture is the `main.js` file, which functions as the central nervous system for routing and server-side logic. This core script orchestrates the flow of data by handling HTTP requests, executing queries to the MySQL database, and processing the responses. The data fetched from MySQL is then passed dynamically to one of the 34 EJS pages, each designed to render specific portions of the data according to the page's role and user requests. Whether it's displaying detailed game information, user reviews, or system requirements, each EJS template is finely tuned to present the information in a coherent and styled manner that enhances user interaction and experience. This modular approach ensures that the server-side operations are efficient, and the user interface remains responsive and precise, catering to the diverse informational needs of each page.
 
+## Backend Technology
+
+- **Node.js**: The runtime environment for executing JavaScript on the server side, ensuring high performance and asynchronous processing.
+- **Express**: A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications, making the handling of HTTP requests and routing more convenient.
+- **EJS**: An embedded JavaScript templating engine that generates HTML markup with plain JavaScript, allowing for the creation of dynamic web pages based on data from the MySQL database.
+- **MySQL2**: A fast and efficient MySQL client for Node.js, which provides compatibility with the latest MySQL features and an improved API for dealing with MySQL protocols.
+- **MySQL2-promise**: A wrapper for the MySQL2 client, adding support for JavaScript promises, thus enabling better handling of asynchronous database operations.
+- **Nodemon**: A utility that monitors for any changes in the source code and automatically restarts the server, improving the development process by reducing downtime and manual restarts.
+- 
 ## Conclusion
 
 This web application stands as a testament to the power of full-stack development, combining Node.js, EJS, MySQL, and Python to transform raw data into an interactive, user-friendly web interface that serves as a valuable resource for browsing and analyzing game data.
